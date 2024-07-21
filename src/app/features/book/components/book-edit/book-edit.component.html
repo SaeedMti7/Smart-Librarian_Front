@@ -1,0 +1,44 @@
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Multiple Input With Default Label</h4>
+                <form (ngSubmit)="onEdit()">
+                    <div class="form-body">
+                        <label class="form-label">Label </label>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group mb-3">
+                                    <input type="text" class="form-control" [(ngModel)]="book.id" name="id" placeholder="Id" disabled>
+
+                                </div>
+                                <div class="form-group mb-3">
+                                    <input type="text" class="form-control" [(ngModel)]="book.title" name="title" placeholder="Title">
+
+                                </div>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="form-group mb-3">
+                                    <input type="text" class="form-control" [(ngModel)]="book.author" name="author" placeholder="Author">
+
+                                </div>
+                                <div class="form-group mb-3">
+                                    <input type="text" class="form-control" [(ngModel)]="book.publishYear" name="publishYear" placeholder="Publish Year">
+
+                                </div>
+                            </div>
+                        </div>
+                      
+                  
+                    </div>
+                    <div class="form-actions">
+                        <div class="text-end">
+                            <button type="submit" class="btn btn-info">Submit</button>
+                            <button type="reset" class="btn btn-dark">Reset</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

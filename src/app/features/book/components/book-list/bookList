@@ -1,0 +1,62 @@
+<div class="page-breadcrumb">
+  <div class="row">
+    <div class="col-7 align-self-center">
+      <h4 class="page-title text-truncate text-dark font-weight-medium mb-1">Books</h4>
+      <div class="d-flex align-items-center">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb m-0 p-0">
+            <li class="breadcrumb-item"><a href="index.html" class="text-muted">Home</a></li>
+            <li class="breadcrumb-item text-muted active" aria-current="page">Table</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+ 
+  </div>
+</div>
+
+<div class="container-fluid">
+  <!-- ============================================================== -->
+  <!-- Start Page Content -->
+  <!-- ============================================================== -->
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Books Table</h4>
+          <button type="button" class="btn waves-effect waves-light btn-primary" [routerLink]="['/books/add']">Create</button>
+          <div class="table-responsive">
+            <ng-container *ngIf="result.isSuccess else faildRequest">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">title</th>
+                  <th scope="col">author</th>
+                  <th scope="col">publishYear</th>
+                  <th scope="col">opration</th>
+
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let book of result.content; let i=index;">
+                  <th scope="row">{{i+1}}</th>
+                  <td>{{book.title}}</td>
+                  <td>{{book.author}}</td>
+                  <td>{{book.publishYear}}</td>
+                  <td><button (click)="onEdit(book.id)" type="button" class="btn waves-effect waves-light btn-warning">Edit</button> || <button (click)="onEdit(book.id)" type="button" class="btn waves-effect waves-light btn-danger">Delete</button></td>
+                </tr>
+              </tbody>
+            </table>
+            </ng-container>
+            <ng-template #faildRequest>
+            {{result.message!='' ?result.message : "not found!"}}
+            </ng-template>
+            
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
